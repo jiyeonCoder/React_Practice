@@ -1,47 +1,21 @@
-import logo from "./logo.svg";
+//import logo from "./logo.svg";
+import React, { useEffect } from "react";
 import "./App.css";
-import React from "react";
-import Text from "./Text";
+import Start from "./Start";
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
+function App() {
+  const [name, setName] = React.useState("Jiyeon");
 
-    this.state = {};
-    this.circle = React.createRef(null);
-  }
-
-  hoverEvent = (e) => {
-    console.log(e.target);
-    console.log(this.circle.current);
-    this.circle.current.style.background = "yellow";
-  };
-
-  componentDidMount() {
-    console.log(this.circle);
-    this.circle.current.addEventListener("mouseover", this.hoverEvent);
-  }
-
-  componentWillUnmount() {
-    this.circle.current.removeEventListener("mouseover", this.hoverEvent);
-  }
-
-  render() {
-    return (
-      <div style={{ width: "100vw", height: "100vh", textAlign: "center" }}>
-        <Text />
-        <div
-          style={{
-            margin: "auto",
-            width: "250px",
-            height: "250px",
-            background: "green",
-            borderRadius: "250px",
-          }}
-          ref={this.circle}></div>
-      </div>
-    );
-  }
+  return (
+    <div
+      className="App"
+      style={{
+        maxWidth: "350px",
+        margin: "auto",
+      }}>
+      <Start name={name} />
+    </div>
+  );
 }
 
 export default App;
