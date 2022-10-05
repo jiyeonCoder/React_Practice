@@ -1,6 +1,7 @@
 import React from "react";
 import img from "./등산다람쥐.png";
 
+
 const Start = (props) => {
   console.log(props);
   return (
